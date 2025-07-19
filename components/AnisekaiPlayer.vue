@@ -7,13 +7,15 @@ import formattedDuration       from '~/utils/formattedDuration';
 interface PlayerProps {
   mpd?: string | null,
   download?: string | null
-  tracks?: AnisekaiTrack[]
+  tracks?: AnisekaiTrack[],
+  title?: string | null
 }
 
 const props = withDefaults(defineProps<PlayerProps>(), {
   mpd:      null,
   download: null,
-  tracks:   () => []
+  tracks:   () => [],
+  title:    null
 });
 
 // Instances
@@ -24,6 +26,7 @@ const settingsButtonElement = useTemplateRef<HTMLButtonElement>('settingsButtonE
 const media                 = useMediaPlayer(playerElement, videoElement);
 const settings              = useToggle();
 const loaded                = ref(false);
+const api                   = useApi();
 
 // Computed
 const subtitles = computed(() => {
@@ -91,14 +94,19 @@ const toggleFullscreen = () => {
   }
 };
 
-const downloadFile = () => {
-  if (!props.download) return;
-  const link    = document.createElement('a');
-  link.download = '';
-  link.href     = props.download;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+const downloadFile = async () => {
+  if (!props.download || !props.title) return;
+  const blob = await api.downloadFile(props.download);
+
+  const url       = URL.createObjectURL(blob);
+  const a         = document.createElement('a');
+  a.href          = url;
+  a.download      = `${props.title}.mkv`;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 };
 
 function isMobileDevice(): boolean {

@@ -43,6 +43,8 @@ const tracks  = computed(() => descriptor.value?.tracks || []);
 const title   = computed(() => descriptor.value?.anime);
 const episode = computed(() => descriptor.value?.number);
 
+const fullTitle = computed(() => `${title.value} - Épisode ${episode.value}`)
+
 onMounted(async () => {
   descriptor.value = await retrieveEpisodeDescriptor();
 
@@ -61,7 +63,7 @@ definePageMeta({validate: routeValidator});
 
 <template>
   <div class="page">
-    <anisekai-player :mpd="mpd" :download="download" :tracks="tracks"/>
+    <anisekai-player :mpd="mpd" :download="download" :tracks="tracks" :title="fullTitle"/>
     <section>
       <h1 v-if="title">{{ title }}</h1>
       <h3 v-if="episode">Épisode {{ episode }}</h3>
