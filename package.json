@@ -1,5 +1,5 @@
 {
-  "name": "anisekai-front",
+  "name": "anisekai-website",
   "private": true,
   "type": "module",
   "version": "0.1.0",
@@ -7,17 +7,15 @@
   "author": "alexpado",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/anisekai-project/anisekai-front/issues"
+    "url": "https://github.com/anisekai-project/website/issues"
   },
-  "homepage": "https://github.com/anisekai-project/anisekai-front#readme",
+  "homepage": "https://github.com/anisekai-project/website#readme",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/eslint": "1.5.2",
@@ -35,11 +33,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.0.1",
-    "@storybook/addon-a11y": "9.0.16",
-    "@storybook/addon-docs": "^9.0.16",
-    "@storybook/addon-vitest": "9.0.16",
-    "eslint-plugin-storybook": "^9.0.16",
     "sass": "^1.89.2"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
