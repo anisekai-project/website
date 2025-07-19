@@ -27,7 +27,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: 'http://192.168.1.20:8080',
+      apiUrl: '',
+      loginUrl: ''
     }
   },
 

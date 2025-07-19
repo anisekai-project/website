@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
-import type {Anime, Episode} from '~/types/interfaces';
+import type {Anime, Episode} from '~/types/api';
+
+const config = useRuntimeConfig();
 
 interface AnimeProps {
   anime: Anime,
@@ -14,12 +16,14 @@ const {state, toggle} = useToggle();
 
 const toEpisodeLink = (episode: Episode) => props.noLink ? undefined : `/watch/${episode.id}`;
 
+const image = computed(() => `${config.public.apiUrl}${props.anime.imageUrl}`);
+
 </script>
 
 <template>
   <div class="anime">
     <div class="meta" @click="toggle">
-      <img :src="anime.imageUrl" :alt="anime.title"/>
+      <img :src="image" :alt="anime.title"/>
       <h3 class="title">{{ anime.title }}</h3>
       <span>{{ anime.episodes.length }} Épisode(s)</span>
     </div>

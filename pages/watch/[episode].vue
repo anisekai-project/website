@@ -6,6 +6,7 @@ import type {RouteLocationNormalized} from '#vue-router';
 const route  = useRoute();
 const router = useRouter();
 const api    = useApi();
+const config = useRuntimeConfig();
 
 const routeValidator = (route: RouteLocationNormalized): boolean => {
   return route.params.episode !== null && !isNaN(Number(route.params.episode));
@@ -24,8 +25,8 @@ const retrieveEpisodeDescriptor: () => Promise<EpisodeDescriptor | null> = async
 
 const descriptor: Ref<EpisodeDescriptor | null> = ref(null);
 
-const mpd      = computed(() => descriptor.value?.mpd);
-const download = computed(() => descriptor.value?.download);
+const mpd      = computed(() => `${config.public.apiUrl}${descriptor.value?.mpd}`);
+const download = computed(() => `${config.public.apiUrl}${descriptor.value?.download}`);
 const tracks   = computed(() => descriptor.value?.tracks || []);
 const title    = computed(() => descriptor.value?.anime);
 const episode  = computed(() => descriptor.value?.number);
