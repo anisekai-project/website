@@ -1,0 +1,166 @@
+/*  _____                                                            _____  */
+/* ( ___ )                                                          ( ___ ) */
+/*  |   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|   |  */
+/*  |   |                                                            |   |  */
+/*  |   |          _    _    _         ____  _                       |   |  */
+/*  |   |         / \  | | _(_) ___   | __ )| |_   _  ___            |   |  */
+/*  |   |        / _ \ | |/ / |/ _ \  |  _ \| | | | |/ _ \           |   |  */
+/*  |   |       / ___ \|   <| | (_) | | |_) | | |_| |  __/           |   |  */
+/*  |   |      /_/   \_\_|\_\_|\___/ _|____/|_|\__,_|\___| _         |   |  */
+/*  |   |              |  \/  (_) __| |_ __ (_) __ _| |__ | |_       |   |  */
+/*  |   |              | |\/| | |/ _` | '_ \| |/ _` | '_ \| __|      |   |  */
+/*  |   |              | |  | | | (_| | | | | | (_| | | | | |_       |   |  */
+/*  |   |              |_|  |_|_|\__,_|_| |_|_|\__, |_| |_|\__|      |   |  */
+/*  |   |                                      |___/                 |   |  */
+/*  |   |                                                            |   |  */
+/*  |___|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|___|  */
+/* (_____)                                                          (_____) */
+
+:root {
+
+  /* === About the background colors...
+    | Background color chroma follow a formula depending on the luminance:
+    |   C = 0.15 * (L / 0.75) ^ (LOG(0.0108 / 0.15) / LOG(0.21 / 0.75))
+    |
+    | This is done to avoid any 'weird' color perception when moving through luminance.
+    | I wasn't expecting going this deep into it when I worked on it.
+   */
+
+  --scheme-background-lowest:      oklch(0.21 0.01080 229);
+  --scheme-background-lower:       oklch(0.23 0.01145 229);
+  --scheme-background:             oklch(0.25 0.01281 229);
+  --scheme-background-lighter:     oklch(0.27 0.01469 229);
+  --scheme-background-lightest:    oklch(0.29 0.01701 229);
+
+  --scheme-primary:                oklch(0.75 0.15000 229);
+  --scheme-highlight:              oklch(0.37 0.03482 229);
+  --scheme-black:                  oklch(0.20 0.00000 0);
+  --scheme-red:                    oklch(0.55 0.20000 30);
+  --scheme-green:                  oklch(0.74 0.20000 128);
+  --scheme-yellow:                 oklch(0.75 0.20000 86);
+  --scheme-blue:                   oklch(0.60 0.20000 243);
+  --scheme-magenta:                oklch(0.47 0.20000 301);
+  --scheme-cyan:                   oklch(0.75 0.15000 229);
+  --scheme-white:                  oklch(0.89 0.00000 0);
+
+  --scheme-bright-primary:         oklch(0.90 0.10000 229);
+  --scheme-bright-highlight:       oklch(0.52 0.07036 229);
+  --scheme-bright-black:           oklch(0.30 0.00000 0);
+  --scheme-bright-red:             oklch(0.70 0.15000 30);
+  --scheme-bright-green:           oklch(0.89 0.15000 128);
+  --scheme-bright-yellow:          oklch(0.90 0.15000 86);
+  --scheme-bright-blue:            oklch(0.75 0.15000 243);
+  --scheme-bright-magenta:         oklch(0.62 0.15000 301);
+  --scheme-bright-cyan:            oklch(0.90 0.10000 229);
+  --scheme-bright-white:           oklch(0.99 0.00000 0);
+
+  --scheme-muted-primary:          oklch(0.60 0.15000 229);
+  --scheme-muted-highlight:        oklch(0.22 0.01189 229);
+  --scheme-muted-black:            oklch(0.10 0.00000 0);
+  --scheme-muted-red:              oklch(0.40 0.20000 30);
+  --scheme-muted-green:            oklch(0.59 0.20000 128);
+  --scheme-muted-yellow:           oklch(0.60 0.20000 86);
+  --scheme-muted-blue:             oklch(0.45 0.20000 243);
+  --scheme-muted-magenta:          oklch(0.32 0.20000 301);
+  --scheme-muted-cyan:             oklch(0.60 0.15000 229);
+  --scheme-muted-white:            oklch(0.79 0.00000 0);
+
+  --scheme-primary-hover:          oklch(0.80 0.15000 229);
+  --scheme-highlight-hover:        oklch(0.42 0.04525 229);
+  --scheme-black-hover:            oklch(0.22 0.00000 0);
+  --scheme-red-hover:              oklch(0.60 0.20000 30);
+  --scheme-green-hover:            oklch(0.79 0.20000 128);
+  --scheme-yellow-hover:           oklch(0.80 0.20000 86);
+  --scheme-blue-hover:             oklch(0.65 0.20000 243);
+  --scheme-magenta-hover:          oklch(0.52 0.20000 301);
+  --scheme-cyan-hover:             oklch(0.80 0.15000 229);
+  --scheme-white-hover:            oklch(0.91 0.00000 0);
+
+  --scheme-bright-primary-hover:   oklch(0.85 0.10000 229);
+  --scheme-bright-highlight-hover: oklch(0.47 0.05709 229);
+  --scheme-bright-black-hover:     oklch(0.28 0.00000 0);
+  --scheme-bright-red-hover:       oklch(0.65 0.15000 30);
+  --scheme-bright-green-hover:     oklch(0.84 0.15000 128);
+  --scheme-bright-yellow-hover:    oklch(0.85 0.15000 86);
+  --scheme-bright-blue-hover:      oklch(0.70 0.15000 243);
+  --scheme-bright-magenta-hover:   oklch(0.57 0.15000 301);
+  --scheme-bright-cyan-hover:      oklch(0.85 0.10000 229);
+  --scheme-bright-white-hover:     oklch(0.97 0.00000 0);
+
+  --scheme-muted-primary-hover:    oklch(0.65 0.15000 229);
+  --scheme-muted-highlight-hover:  oklch(0.27 0.01816 229);
+  --scheme-muted-black-hover:      oklch(0.12 0.00000 0);
+  --scheme-muted-red-hover:        oklch(0.45 0.20000 30);
+  --scheme-muted-green-hover:      oklch(0.64 0.20000 128);
+  --scheme-muted-yellow-hover:     oklch(0.65 0.20000 86);
+  --scheme-muted-blue-hover:       oklch(0.50 0.20000 243);
+  --scheme-muted-magenta-hover:    oklch(0.37 0.20000 301);
+  --scheme-muted-cyan-hover:       oklch(0.65 0.15000 229);
+  --scheme-muted-white-hover:      oklch(0.81 0.00000 0);
+}
+
+@font-face {
+  font-family: 'Adwaita Sans';
+  src:         url('@/assets/fonts/AdwaitaSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style:  normal;
+}
+
+@font-face {
+  font-family: 'Adwaita Sans';
+  src:         url('@/assets/fonts/AdwaitaSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style:  italic;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: 'Nokora', sans-serif;
+  font-weight: bold;
+}
+
+a, p, span, input, select, textarea, button, .text {
+  font-family: 'Adwaita Sans', sans-serif;
+  font-weight: normal;
+}
+
+pre, .monospace {
+  font-family: 'Azeret Mono', monospace;
+  font-weight: normal;
+}
+
+$colors: 'primary', 'highlight', 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white';
+
+@each $color in $colors {
+  .scheme-#{$color} {
+    --x-scheme:              var(--scheme-#{$color});
+    --x-scheme-bright:       var(--scheme-bright-#{$color});
+    --x-scheme-muted:        var(--scheme-muted-#{$color});
+    --x-scheme-hover:        var(--scheme-#{$color}-hover);
+    --x-scheme-bright-hover: var(--scheme-bright-#{$color}-hover);
+    --x-scheme-muted-hover:  var(--scheme-muted-#{$color}-hover);
+  }
+}
+
+* {
+  padding:    0;
+  margin:     0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--scheme-background);
+  color:            var(--scheme-white);
+}
+
+h1 {
+  margin:        0 0 8px 0;
+  border-bottom: 2px solid var(--scheme-primary);
+  font-size:     2em;
+}
+
+.notice {
+  background-color: var(--scheme-background-lightest);
+  padding:          8px;
+  text-align:       center;
+  border-radius:    8px;
+}

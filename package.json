@@ -1,0 +1,45 @@
+{
+  "name": "anisekai-front",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Frontend project for Anisekai",
+  "author": "alexpado",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/anisekai-project/anisekai-front/issues"
+  },
+  "homepage": "https://github.com/anisekai-project/anisekai-front#readme",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "1.5.2",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/icon": "1.15.0",
+    "@nuxt/image": "1.10.0",
+    "@nuxt/scripts": "0.11.9",
+    "@nuxtjs/google-fonts": "3.2.0",
+    "@unhead/vue": "^2.0.3",
+    "@vite-pwa/nuxt": "1.0.4",
+    "eslint": "^9.0.0",
+    "nuxt": "^3.17.6",
+    "shaka-player": "^4.15.6",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.0.1",
+    "@storybook/addon-a11y": "9.0.16",
+    "@storybook/addon-docs": "^9.0.16",
+    "@storybook/addon-vitest": "9.0.16",
+    "eslint-plugin-storybook": "^9.0.16",
+    "sass": "^1.89.2"
+  }
+}
