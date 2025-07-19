@@ -91,6 +91,16 @@ const toggleFullscreen = () => {
   }
 };
 
+const downloadFile = () => {
+  if (!props.download) return;
+  const link    = document.createElement('a');
+  link.download = '';
+  link.href     = props.download;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+};
+
 function isMobileDevice(): boolean {
   return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
@@ -193,6 +203,10 @@ const {active}                                        = media.activity;
 
         <button ref="settingsButtonElement" :class="{active: state}" @click="settings.toggle">
           <Icon name="material-symbols:settings-outline-rounded"/>
+        </button>
+
+        <button v-if="download" @click="downloadFile">
+          <Icon name="material-symbols:download-rounded"/>
         </button>
 
         <button v-if="isSupported" @click="toggleFullscreen">
