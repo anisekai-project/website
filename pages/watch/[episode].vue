@@ -25,11 +25,23 @@ const retrieveEpisodeDescriptor: () => Promise<EpisodeDescriptor | null> = async
 
 const descriptor: Ref<EpisodeDescriptor | null> = ref(null);
 
-const mpd      = computed(() => `${config.public.apiUrl}${descriptor.value?.mpd}`);
-const download = computed(() => `${config.public.apiUrl}${descriptor.value?.download}`);
-const tracks   = computed(() => descriptor.value?.tracks || []);
-const title    = computed(() => descriptor.value?.anime);
-const episode  = computed(() => descriptor.value?.number);
+const mpd = computed(() => {
+  if (descriptor.value) {
+    return `${config.public.apiUrl}${descriptor.value?.mpd}`;
+  }
+  return null;
+});
+
+const download = computed(() => {
+  if (descriptor.value) {
+    return `${config.public.apiUrl}${descriptor.value?.download}`;
+  }
+  return null;
+});
+
+const tracks  = computed(() => descriptor.value?.tracks || []);
+const title   = computed(() => descriptor.value?.anime);
+const episode = computed(() => descriptor.value?.number);
 
 onMounted(async () => {
   descriptor.value = await retrieveEpisodeDescriptor();
