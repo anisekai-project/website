@@ -5,7 +5,7 @@ import type {RouteLocationNormalized} from '#vue-router';
 
 const route  = useRoute();
 const router = useRouter();
-const api    = useApi();
+const {api}  = useAnisekai();
 const config = useRuntimeConfig();
 
 const routeValidator = (route: RouteLocationNormalized): boolean => {
@@ -43,7 +43,7 @@ const tracks  = computed(() => descriptor.value?.tracks || []);
 const title   = computed(() => descriptor.value?.anime);
 const episode = computed(() => descriptor.value?.number);
 
-const fullTitle = computed(() => `${title.value} - Épisode ${episode.value}`)
+const fullTitle = computed(() => `${title.value} - Épisode ${episode.value}`);
 
 onMounted(async () => {
   descriptor.value = await retrieveEpisodeDescriptor();
@@ -58,7 +58,11 @@ onMounted(async () => {
   }
 });
 
-definePageMeta({validate: routeValidator});
+definePageMeta(
+    {
+      validate:   routeValidator,
+      middleware: 'auth'
+    });
 </script>
 
 <template>

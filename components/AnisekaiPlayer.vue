@@ -26,7 +26,7 @@ const settingsButtonElement = useTemplateRef<HTMLButtonElement>('settingsButtonE
 const media                 = useMediaPlayer(playerElement, videoElement);
 const settings              = useToggle();
 const loaded                = ref(false);
-const api                   = useApi();
+const {api}                 = useAnisekai();
 
 // Computed
 const subtitles = computed(() => {
@@ -96,7 +96,7 @@ const toggleFullscreen = () => {
 
 const downloadFile = async () => {
   if (!props.download || !props.title) return;
-  const blob = await api.downloadFile(props.download);
+  const blob = await api.file(props.download);
 
   const url       = URL.createObjectURL(blob);
   const a         = document.createElement('a');

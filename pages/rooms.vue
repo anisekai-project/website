@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+definePageMeta(
+    {
+      middleware: 'auth'
+    });
+</script>
+
 <template>
   <div class="rooms">
     <h1>Salles</h1>

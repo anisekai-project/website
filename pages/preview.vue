@@ -3,7 +3,7 @@
 import {useInfiniteScroll}       from '@vueuse/core';
 import type {Anime, SpringError} from '~/types/api';
 
-const api                            = useApi();
+const {api}                            = useAnisekai();
 const animes: Ref<Anime[]>           = ref([]);
 const memory: Ref<Anime[]>           = ref([]);
 const loading: Ref<boolean>          = ref(true);

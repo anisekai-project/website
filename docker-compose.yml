@@ -1,0 +1,7 @@
+services:
+  web:
+    env_file:
+      - .env
+    image: akionakao/anisekai-website:latest
+    ports:
+      - '3000:3000'

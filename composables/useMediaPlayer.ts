@@ -13,7 +13,7 @@ function useSubtitleOctopus(video: Ref<HTMLMediaElement | null>) {
   const isAvailable                            = computed(() => octopus != null);
   const activeTrack: Ref<AnisekaiTrack | null> = ref(null);
 
-  const api = useApi();
+  const {api} = useAnisekai();
 
   const dispose = () => {
     if (octopus.value) {
@@ -38,7 +38,7 @@ function useSubtitleOctopus(video: Ref<HTMLMediaElement | null>) {
       return;
     }
 
-    const subs = await api.fetch<string>(`/api/v3/library/subtitles/${track.id}`);
+    const subs = await api.file<string>(`/api/v3/library/subtitles/${track.id}`, true);
 
     octopus.value = new SubtitlesOctopus(
       {
@@ -62,7 +62,7 @@ function useSubtitleOctopus(video: Ref<HTMLMediaElement | null>) {
 
 function useShaka(video: Ref<HTMLMediaElement | null>) {
 
-  const token = useCookie('token');
+  const {accessToken} = useAnisekai();
 
   const instance: Ref<shaka.Player | null>          = ref(null);
   const ready: Ref<boolean>                         = ref(false);
@@ -83,8 +83,8 @@ function useShaka(video: Ref<HTMLMediaElement | null>) {
           type === shaka.net.NetworkingEngine.RequestType.MANIFEST ||
           type === shaka.net.NetworkingEngine.RequestType.SEGMENT
         ) {
-          if (token.value) {
-            request.headers['Authorization'] = `Bearer ${token.value}`;
+          if (accessToken.value) {
+            request.headers['Authorization'] = `Bearer ${accessToken.value}`;
           }
         }
       });

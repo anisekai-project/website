@@ -27,12 +27,14 @@
     "@unhead/vue": "^2.0.3",
     "@vite-pwa/nuxt": "1.0.4",
     "eslint": "^9.0.0",
+    "luxon": "^3.7.1",
     "nuxt": "^3.17.6",
     "shaka-player": "^4.15.6",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@types/luxon": "^3",
     "sass": "^1.89.2"
   },
   "packageManager": "yarn@4.9.2"

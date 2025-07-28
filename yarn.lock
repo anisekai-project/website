@@ -3417,6 +3417,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/luxon@npm:^3":
+  version: 3.6.2
+  resolution: "@types/luxon@npm:3.6.2"
+  checksum: 10c0/7572ee52b3d3e9dd10464b90561a728b90f34b9a257751cc3ce23762693dd1d14fa98b7f103e2efe2c6f49033331f91de5681ffd65cca88618cefe555be326db
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 24.0.15
   resolution: "@types/node@npm:24.0.15"
@@ -4065,9 +4072,11 @@ __metadata:
     "@nuxt/image": "npm:1.10.0"
     "@nuxt/scripts": "npm:0.11.9"
     "@nuxtjs/google-fonts": "npm:3.2.0"
+    "@types/luxon": "npm:^3"
     "@unhead/vue": "npm:^2.0.3"
     "@vite-pwa/nuxt": "npm:1.0.4"
     eslint: "npm:^9.0.0"
+    luxon: "npm:^3.7.1"
     nuxt: "npm:^3.17.6"
     sass: "npm:^1.89.2"
     shaka-player: "npm:^4.15.6"
@@ -8410,7 +8419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.2.1":
+"luxon@npm:^3.2.1, luxon@npm:^3.7.1":
   version: 3.7.1
   resolution: "luxon@npm:3.7.1"
   checksum: 10c0/f83bc23a4c09da9111bc2510d2f5346e1ced4938379ebff13e308fece2ea852eb6e8b9ed8053b8d82e0fce05d5dd46e4cd64d8831ca04cfe32c0954b6f087258

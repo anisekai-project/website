@@ -8,7 +8,7 @@ const memory: Ref<Anime[]> = ref([])
 const loading: Ref<boolean> = ref(true);
 const error: Ref<SpringError | null> = ref(null);
 
-const api = useApi();
+const {api} = useAnisekai();
 
 onMounted(async () => {
 

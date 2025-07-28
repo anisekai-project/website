@@ -1,8 +1,18 @@
 export interface ApiResponse {}
 
 export interface AuthResponse extends ApiResponse {
-  token: string,
-  user: User
+  accessToken: string,
+  refreshToken: string
+}
+
+export interface Token {
+  iss: string,
+  sub: string,
+  exp: number,
+  nbf: number,
+  iat: number,
+  jti: string,
+  role: string,
 }
 
 export interface User {
