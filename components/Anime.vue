@@ -18,10 +18,13 @@ const toEpisodeLink = (episode: Episode) => props.noLink ? undefined : `/watch/$
 
 const image = computed(() => `${config.public.apiUrl}${props.anime.imageUrl}`);
 
+const isReleasing  = computed(() => props.anime.state === 'RELEASING');
+const isIncomplete = computed(() => props.anime.state === 'INCOMPLETE');
+
 </script>
 
 <template>
-  <div class="anime">
+  <div class="anime" :class="{releasing: isReleasing, incomplete: isIncomplete}">
     <div class="meta" @click="toggle">
       <img :src="image" :alt="anime.title"/>
       <h3 class="title">{{ anime.title }}</h3>
@@ -44,6 +47,26 @@ const image = computed(() => `${config.public.apiUrl}${props.anime.imageUrl}`);
   border-radius:    8px;
   overflow:         hidden;
 
+  &.releasing h3::before, &.incomplete h3::before {
+    content:       ' ';
+    display:       inline-block;
+    left:          0;
+    top:           0;
+    height:        12px;
+    width:         12px;
+    margin-right:  8px;
+    border-radius: 12px;
+  }
+
+  &.releasing h3::before {
+    background-color: var(--scheme-green);
+  }
+
+  &.incomplete h3::before {
+    background-color: var(--scheme-red);
+  }
+
+
   .meta {
     position:  relative;
     padding:   8px;
@@ -64,6 +87,7 @@ const image = computed(() => `${config.public.apiUrl}${props.anime.imageUrl}`);
     }
 
     h3 {
+      position:    relative;
       font-weight: 900;
     }
 

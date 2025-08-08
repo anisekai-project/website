@@ -32,6 +32,7 @@ export interface Anime extends ApiResponse {
   order: number,
   title: string,
   url: string,
+  state: 'COMPLETE' | 'INCOMPLETE' | 'RELEASING',
   imageUrl: string,
   episodes: Episode[]
 }
